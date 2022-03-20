@@ -12,20 +12,11 @@ app.use(express.json());
 
 app.post("/api/signupNewsletter", (req, res) => {
     const email = req.body.email;
-
-    fs.readFile(emailsFile, "utf8", (err, file) => {
+    fs.appendFile(emailsFile, email + "\n", err => {
         if (err) {
             console.error(err);
-            return;
         }
-        file += "\n" + email;
-        fs.writeFile(emailsFile, file, err => {
-            if (err) {
-                console.error(err);
-            }
-        });
     });
-
     console.log(`Signed up ${email} for newsletter`);
     res.send();
 });
