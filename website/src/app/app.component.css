@@ -30,6 +30,11 @@ mat-toolbar {
   padding-left: 15px;
 }
 
+.logo-icon {
+  height: 60%;
+  margin-right: 15px;
+}
+
 
 /* ----- bottom bar ----- */
 
