@@ -1,0 +1,57 @@
+mat-drawer-container {
+  height: 100vh;
+}
+
+/* ----- top bar ----- */
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-left-button {
+  margin-right: 15px;
+}
+
+.nav-sidenav {
+  width: 300px;
+  background-color: #014f61;
+  color: white;
+}
+.nav-sidenav * {
+  color: white;
+  font-weight: 400;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+#nav-header {
+  padding-left: 15px;
+}
+
+
+/* ----- bottom bar ----- */
+
+#bottom-bar {
+  width: available;
+  background-color: #014554;
+  text-align: center;
+  padding: 10px;
+}
+
+#bottom-bar p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#bottom-bar p:first-of-type {
+  margin-top: 0;
+}
+#bottom-bar p:last-of-type {
+  margin-bottom: 0;
+}
+
+#bottom-bar a {
+  text-decoration: underline;
+  color: inherit;
+}

@@ -1,0 +1,55 @@
+<div id="header-container">
+  <div id="header-inner-container">
+    <div id="header-text-container">
+      <h1>Vocabulum</h1>
+      <p>Intelligent trainer for your Cursus vocabularies</p>
+      <a mat-flat-button color="primary" href="#features">Learn More</a>
+      <span class="delimiter"></span>
+      <a mat-flat-button color="accent" href="#newsletter">Newsletter</a>
+    </div>
+  </div>
+</div>
+
+<span id="features"></span>
+<div id="features-outer-container">
+  <div id="features-container">
+
+    <div id="features-grid-container">
+      <div class="feature-container" *ngFor="let row of rows">
+        <div class="icon-container">
+          <mat-icon>{{row.icon}}</mat-icon>
+        </div>
+        <div class="text-container">
+          <mat-card>
+            <div class="tile-text">
+              <p class="title">{{row.title}}</p>
+              <p>{{row.text}}</p>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div class="centered">
+      <span id="coming-soon">
+        Coming soon
+      </span>
+    </div>
+    <br>
+
+    <span id="newsletter"></span>
+    <mat-card id="signup-form-container">
+      <div class="signup-form-tile" id="signup-form-text-tile">
+        <p class="tile-text" id="newsletter-text">
+          <span class="title">Sign up for the newsletter</span>
+          <br>to get all future updates regarding Vocabulum.
+        </p>
+      </div>
+      <div class="signup-form-tile" id="signup-form-form-tile">
+        <app-signup-form></app-signup-form>
+      </div>
+    </mat-card>
+
+  </div>
+</div>
