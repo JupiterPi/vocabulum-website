@@ -2,11 +2,11 @@ const express = require("express");
 const fs = require("fs");
 
 const app = express();
-const port = 3000;
+const port = 4200;
 
 const emailsFile = "emails.txt";
 
-app.use(express.static("app"));
+app.use(express.static("dist/vocabulum-website"));
 
 app.use(express.json());
 
@@ -22,5 +22,5 @@ app.post("/api/signupNewsletter", (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`Vocabulum Website server listening on port ${port}`);
 });
