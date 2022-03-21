@@ -21,6 +21,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import { ImprintComponent } from './imprint/imprint.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ImprintComponent } from './imprint/imprint.component';
     MatToolbarModule,
     MatCardModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

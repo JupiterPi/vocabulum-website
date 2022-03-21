@@ -5,6 +5,8 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-mat-icon {
+/* style from signup-form.component.css */
 
+snack-bar-container.error {
+  background-color: #f44336;
 }

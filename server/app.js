@@ -18,7 +18,11 @@ app.post("/api/signupNewsletter", (req, res) => {
         }
     });
     console.log(`Signed up ${email} for newsletter`);
-    res.send();
+
+    res.contentType("application/json");
+    res.send({
+        message: ""
+    });
 });
 
 app.listen(port, () => {
