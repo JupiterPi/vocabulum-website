@@ -22,7 +22,7 @@ export class SignupFormComponent {
 
   signup() {
     if (this.email.value !== "" && !this.email.hasError("email")) {
-      this.http.post("/api/signupNewsletter", {
+      this.http.post("/api/newsletter/signup", {
         email: this.email.value
       }, {
         headers: new HttpHeaders({
@@ -33,7 +33,7 @@ export class SignupFormComponent {
         let message = "Signed up for the newsletter!";
         const body = response as {message: string};
         if (body.message !== "") {
-          message += " (" + body.message + ")";
+          message = body.message;
         }
         this._snackBar.open(message,"", {
           duration: 3 * 1000
