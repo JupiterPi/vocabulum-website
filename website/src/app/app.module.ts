@@ -22,19 +22,30 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
 import { ImprintComponent } from './imprint/imprint.component';
 import {HttpClientModule} from "@angular/common/http";
+import {
+  UnsubscribeDialogComponent,
+  UnsubscribeDialogSuccessDialog
+} from './unsubscribe-dialog/unsubscribe-dialog.component';
+import {MatDialogModule} from "@angular/material/dialog";
+import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+import {WindowService} from "./window.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupFormComponent,
     PromotionPageComponent,
-    ImprintComponent
+    ImprintComponent,
+    UnsubscribeDialogComponent,
+    UnsubscribeDialogSuccessDialog,
+    BottomBarComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       {path: "", component: PromotionPageComponent},
-      {path: "imprint", component: ImprintComponent}
+      {path: "imprint", component: ImprintComponent},
+      {path: "unsubscribe", component: UnsubscribeDialogComponent}
     ]),
     BrowserAnimationsModule,
     MatSliderModule,
@@ -50,9 +61,12 @@ import {HttpClientModule} from "@angular/common/http";
     MatCardModule,
     MatSidenavModule,
     MatListModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
-  providers: [],
+  providers: [
+    WindowService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

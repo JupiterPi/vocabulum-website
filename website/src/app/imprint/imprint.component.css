@@ -1,5 +1,11 @@
 #imprint-container {
-  padding: 50px 100px;
+  padding: 30px 25px;
   background-color: #eeeeee;
   margin: 0;
+}
+
+@media screen and (max-width: 650px) {
+  #imprint-container {
+    padding: 25px 20px;
+  }
 }

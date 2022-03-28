@@ -25,14 +25,8 @@
 
   <router-outlet></router-outlet>
 
-  <div id="bottom-bar">
-    <p>
-      <a routerLink="/">Vocabulum</a>
-      <br>
-      Copyright (c) 2022 JupiterPi
-      <br>
-      <a routerLink="/imprint">Imprint</a>
-    </p>
-  </div>
+  <app-bottom-bar [floored]="floored"></app-bottom-bar>
+
+  <div #filler></div>
 
 </mat-drawer-container>

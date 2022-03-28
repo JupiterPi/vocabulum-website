@@ -35,28 +35,8 @@ mat-toolbar {
   margin-right: 15px;
 }
 
-
-/* ----- bottom bar ----- */
-
-#bottom-bar {
-  width: available;
-  background-color: #014554;
-  text-align: center;
-  padding: 10px;
-}
-
-#bottom-bar p {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-#bottom-bar p:first-of-type {
-  margin-top: 0;
-}
-#bottom-bar p:last-of-type {
-  margin-bottom: 0;
-}
-
-#bottom-bar a {
-  text-decoration: underline;
-  color: inherit;
+/* ----- */
+#filler {
+  height: 30%;
+  /*background-color: darkslategrey;*/
 }

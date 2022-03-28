@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import {Router, ActivationEnd} from "@angular/router";
+import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Router, ActivationEnd, NavigationEnd} from "@angular/router";
 import {filter} from 'rxjs/operators';
+import { interval, Subscription } from 'rxjs';
+import {WindowService} from "./window.service";
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,11 @@ export class AppComponent {
     }
   ];
 
-  constructor(private router: Router) {
+  floored = false;
+
+  @ViewChild("filler") filler!: ElementRef<HTMLDivElement>;
+
+  constructor(private router: Router, private windowService: WindowService) {
     router.events.pipe(
       filter(event => event instanceof ActivationEnd)
     ).subscribe(event => {
@@ -38,5 +44,17 @@ export class AppComponent {
       }
       this.pages.reverse();
     });
+
+    router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(this.updateFloored);
+  }
+
+  updateFloored = () => {
+    setTimeout(() => {
+      const viewportHeight = window.innerHeight;
+      console.log(this.filler);
+      const fillerTop = this.filler.nativeElement.getBoundingClientRect().top;
+      console.log("updated - viewportHeight: " + viewportHeight + ", fillerTop: " + fillerTop);
+      this.floored = fillerTop < viewportHeight;
+    }, 100);
   }
 }

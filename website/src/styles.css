@@ -3,6 +3,11 @@
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #eeeeee !important;
+}
+
+.mat-drawer-container {
+  background-color: #eeeeee !important;
 }
 
 /* style from signup-form.component.css */
