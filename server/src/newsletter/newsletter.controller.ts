@@ -6,8 +6,23 @@ const api = express.Router();
 
 const newsletterEmailService = require("./newsletter_email.service");
 
-api.post("/signup", async (req, res) => {
-    const email = req.body.email;
+// get email details
+api.get("/:id", async (req, res) => {
+    try {
+        const emailId = req.params.id;
+        const doc = {
+            _id: new ObjectId(emailId)
+        }
+        const newsletterEmail = await newsletterEmailService.collections.newsletterEmailsCollection.findOne(doc);
+        res.send(newsletterEmail);
+    } catch (ex) {
+        res.status(500).send(ex.message);
+    }
+});
+
+// subscribe
+api.post("/", async (req, res) => {
+    const email = req.body.email.toLowerCase();
 
     const doc = {
         email: email
@@ -16,39 +31,42 @@ api.post("/signup", async (req, res) => {
     if ((await newsletterEmailService.collections.newsletterEmailsCollection.find(doc).toArray()).length >= 1 ) {
         res.contentType("application/json");
         res.send({
-            message: "You're seem to be already subscribed to the newsletter."
+            message: "You seem to be already subscribed to the newsletter."
         });
         return;
     }
 
-    newsletterEmailService.collections.newsletterEmailsCollection.insertOne(doc);
+    let result = await newsletterEmailService.collections.newsletterEmailsCollection.insertOne(doc);
+    const newsletterEmail = (await newsletterEmailService.collections.newsletterEmailsCollection.findOne( { _id: new ObjectId(result.insertedId)} )) as NewsletterEmail;
 
-    console.log(`Signed up ${email} for newsletter`);
+    console.log(`Signed up ${newsletterEmail.email} for newsletter`);
 
     res.contentType("application/json");
     res.send({
+        newsletterEmail: newsletterEmail,
         message: ""
     });
 });
 
-api.post("/unsubscribe", async (req, res) => {
-    const id = req.body.id;
-    const newsletterEmail = (await newsletterEmailService.collections.newsletterEmailsCollection.findOne({ _id: new ObjectId(id) })) as NewsletterEmail;
-    if (newsletterEmail) {
-        await newsletterEmailService.collections.newsletterEmailsCollection.deleteOne({ _id: new ObjectId(id) });
-        res.status(202).send({
-            message: `Successfully unsubscribed ${newsletterEmail.email} from the newsletter.`
-        });
-    } else {
-        res.status(200).send({
-            message: `That email is not subscribed to the newsletter currently.`
-        });
+// unsubscribe
+api.delete("/:id", async (req, res) => {
+    try {
+        const emailId = req.params.id;
+        const newsletterEmail = (await newsletterEmailService.collections.newsletterEmailsCollection.findOne({ _id: new ObjectId(emailId) })) as NewsletterEmail;
+        if (newsletterEmail) {
+            await newsletterEmailService.collections.newsletterEmailsCollection.deleteOne({ _id: new ObjectId(emailId) });
+            console.log(`Unsubscribed ${newsletterEmail.email} from newsletter`);
+            res.status(202).send({
+                message: `Successfully unsubscribed ${newsletterEmail.email} from the newsletter.`
+            });
+        } else {
+            res.status(200).send({
+                message: `That email is not subscribed to the newsletter currently.`
+            });
+        }
+    } catch (ex) {
+        res.status(500).send(ex.message);
     }
 });
-
-/*api.get("/", async (req, res) => {
-    const newsletterEmails = (await newsletterEmailService.collections.newsletterEmailsCollection.find({}).toArray()) as NewsletterEmail[];
-    res.send(newsletterEmails);
-});*/
 
 module.exports = api;

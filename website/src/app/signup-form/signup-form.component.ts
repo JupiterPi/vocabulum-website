@@ -11,7 +11,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 export class SignupFormComponent {
   email = new FormControl("", Validators.email)
 
-  constructor(private _snackBar: MatSnackBar, private http: HttpClient) {}
+  constructor(private snackbar: MatSnackBar, private http: HttpClient) {}
 
   getErrorMessage() {
     if (this.email.hasError("email")) {
@@ -22,7 +22,7 @@ export class SignupFormComponent {
 
   signup() {
     if (this.email.value !== "" && !this.email.hasError("email")) {
-      this.http.post("/api/newsletter/signup", {
+      this.http.post("/api/newsletter", {
         email: this.email.value
       }, {
         headers: new HttpHeaders({
@@ -35,11 +35,11 @@ export class SignupFormComponent {
         if (body.message !== "") {
           message = body.message;
         }
-        this._snackBar.open(message,"", {
+        this.snackbar.open(message,"", {
           duration: 3 * 1000
         });
       }, (error: Error) => {
-        this._snackBar.open("Error: \"" + error.message + "\". Try again", "", {
+        this.snackbar.open("Error: \"" + error.message + "\". Try again", "", {
           duration: 5 * 1000,
           panelClass: "error"
         });
