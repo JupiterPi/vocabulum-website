@@ -49,5 +49,33 @@
 
 .img-logo {
   height: 80px;
+  width: 80px;
   margin: 20px;
+}
+
+@media screen and (max-width: 540px) {
+  #bottom-bar-container {
+    padding: 0;
+  }
+
+  #bottom-bar {
+    width: 100%;
+    border-radius: 0 !important;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #bottom-bar {
+    flex-direction: column;
+  }
+
+  .text {
+    padding: 10px;
+  }
+
+  .img {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
 }
