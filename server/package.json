@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/app.ts",
   "scripts": {
-    "start": "tsc && node out/app.js",
+    "start": "tsc && node out-vocabulum-website/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
