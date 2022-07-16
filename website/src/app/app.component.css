@@ -35,6 +35,10 @@ mat-toolbar {
   margin-right: 15px;
 }
 
+#nav-selection-list {
+  padding-right: 10px;
+}
+
 /* ----- */
 #filler {
   height: 30%;

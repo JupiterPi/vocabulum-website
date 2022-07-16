@@ -27,19 +27,18 @@
   border-bottom-right-radius: 20px;
 }
 
+#bottom-bar .bottom-bar-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .floored {
   margin-bottom: 20px;
 }
 
 .text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 10px;
-}
-
-.text-spacing {
-  margin: 20px;
+  margin: 5px 10px;
 }
 
 #bottom-bar a {

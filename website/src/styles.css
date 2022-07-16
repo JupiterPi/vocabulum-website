@@ -15,3 +15,7 @@ body {
 snack-bar-container.error {
   background-color: #f44336;
 }
+
+.muted {
+  color: #777777;
+}

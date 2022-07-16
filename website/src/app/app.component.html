@@ -4,7 +4,7 @@
   <mat-drawer class="nav-sidenav" mode="over" #drawer>
 
     <h2 id="nav-header">Vocabulum</h2>
-    <mat-selection-list multiple="false">
+    <mat-selection-list multiple="false" id="nav-selection-list">
       <mat-list-option
         *ngFor="let page of pages"
         [selected]="page.selected"
