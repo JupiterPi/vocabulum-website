@@ -21,6 +21,8 @@ app.use(express.static("dist/vocabulum-website"));
 //app.use(express.static("dist/vocabulum-website"));
 app.use("/api/newsletter", require("./newsletter/newsletter.controller"));
 
+app.use("/api/analyze", require("./analyze/analyze.controller"));
+
 app.listen(port, () => {
     console.log(`Vocabulum Website server listening on port ${port}`);
 });

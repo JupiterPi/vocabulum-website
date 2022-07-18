@@ -3,6 +3,9 @@ import {Router, ActivationEnd, NavigationEnd} from "@angular/router";
 import {filter} from 'rxjs/operators';
 import { interval, Subscription } from 'rxjs';
 import {WindowService} from "./window.service";
+import {CookieService} from "ngx-cookie-service";
+import {HttpClient} from "@angular/common/http";
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +30,7 @@ export class AppComponent {
 
   @ViewChild("filler") filler!: ElementRef<HTMLDivElement>;
 
-  constructor(private router: Router, private windowService: WindowService) {
+  constructor(private router: Router, private windowService: WindowService, private cookieService: CookieService, private http: HttpClient) {
     router.events.pipe(
       filter(event => event instanceof ActivationEnd)
     ).subscribe(event => {
@@ -45,10 +48,22 @@ export class AppComponent {
       this.pages.reverse();
     });
 
-    router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(this.updateFloored);
+    router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(e => this.onPageChanged(e as NavigationEnd));
   }
 
-  updateFloored = () => {
+  onPageChanged(e: NavigationEnd) {
+    // analyze traffic
+    let id = this.cookieService.get("client-id");
+    console.log(id);
+    if (id == "") {
+      id = uuid();
+      this.cookieService.set("client-id", id);
+    }
+    this.http.post("/api/analyze/view/" + id, null).subscribe({
+      next: val => console.log(val)
+    });
+
+    // updateFloored
     setTimeout(() => {
       const viewportHeight = window.innerHeight;
       console.log(this.filler);

@@ -30,6 +30,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import {WindowService} from "./window.service";
 import { SocialsComponent } from './socials/socials.component';
+import {CookieService} from "ngx-cookie-service";
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { SocialsComponent } from './socials/socials.component';
     MatDialogModule
   ],
   providers: [
-    WindowService
+    WindowService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
