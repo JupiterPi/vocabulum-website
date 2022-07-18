@@ -29,6 +29,7 @@ import {
 import {MatDialogModule} from "@angular/material/dialog";
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import {WindowService} from "./window.service";
+import { SocialsComponent } from './socials/socials.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {WindowService} from "./window.service";
     ImprintComponent,
     UnsubscribeDialogComponent,
     UnsubscribeDialogSuccessDialog,
-    BottomBarComponent
+    BottomBarComponent,
+    SocialsComponent
   ],
   imports: [
     BrowserModule,

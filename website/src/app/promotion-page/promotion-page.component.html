@@ -51,22 +51,8 @@
       </div>
     </mat-card>
 
-    <div class="centered" id="socials-container">
-      <!--<span>&#8226;</span>-->
-
-      <a href="https://www.youtube.com/channel/UCJhfTt-wU7zsXD3HEQmKXyg" target="_blank">
-        <img src="assets/yt_logo.webp">
-        <span class="socials-name">Vocabular</span>
-      </a>
-
-      <span class="socials-dot">&#8226;</span>
-
-      <a href="https://twitter.com/J_Vocabular" target="_blank">
-        <img src="assets/twitter_logo.webp">
-        <span class="socials-name">@J_Vocabular</span>
-      </a>
-
-      <!--<span>&#8226;</span>-->
+    <div id="socials">
+      <app-socials [showName]="true"></app-socials>
     </div>
 
     <!--------------- ADD LINKS, STYLE, CHECK FOR MOBILE --------------->

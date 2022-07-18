@@ -1,0 +1,36 @@
+#socials-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#socials-container img {
+  height: 10px;
+}
+
+.socials-dot {
+  color: grey;
+}
+
+#socials-container a {
+  text-decoration: none;
+  color: black;
+}
+
+#socials-container .socials-name {
+  margin-left: 5px;
+}
+
+/*
+@media (hover: hover) {
+  #socials-container a:not(:hover) img {
+    filter: grayscale(1)
+  }
+}
+*/
+
+#socials-container a:hover span {
+  color: #4d4d4d;
+}
