@@ -2,14 +2,14 @@
 
   <form>
     <mat-form-field appearance="outline" id="input-form-field">
-      <mat-label>Deine E-Mail-Adresse</mat-label>
+      <mat-label>Your Email</mat-label>
       <input matInput placeholder="my@email.com" [formControl]="email">
       <mat-icon matSuffix id="icon">alternate_email</mat-icon>
       <mat-error>{{getErrorMessage()}}</mat-error>
     </mat-form-field>
 
     <br>
-    <button mat-flat-button color="primary" type="button" id="signup-button" (click)="signup()">Abonnieren</button>
+    <button mat-flat-button color="primary" type="button" id="signup-button" (click)="signup()">Sign Up</button>
   </form>
 
 </div>
