@@ -13,12 +13,12 @@ export class AppComponent {
   pages = [
     {
       route: "/",
-      title: "Startseite",
+      title: "Home",
       selected: false
     },
     {
       route: "/imprint",
-      title: "Impressum",
+      title: "Imprint",
       selected: false
     }
   ];

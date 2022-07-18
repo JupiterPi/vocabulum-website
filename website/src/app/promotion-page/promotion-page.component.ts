@@ -10,38 +10,38 @@ export class PromotionPageComponent {
     {
       textRight: true,
       icon: "grade",
-      title: "Successor to Vkbln4ll",
-      text: "As the successor to Vkbln4ll v2 Discord, Vocabulum has an all-new intelligent system and a lot of new features."
+      title: "Nachfolger von Vkbln4ll",
+      text: "Als Nachfolger von Vkbln4ll v2 Discord hat Vocabulum ein brandneues intelligentes System und viele neue Features."
     },
     {
       textRight: false,
       icon: "edit",
-      title: "Adaptive trainer for your Cursus vocabularies",
-      text: "Practice vocabularies in the same format and portions you already know from your textbook. Customize your session and use different modes and difficulty levels to make Vocabulum work for you."
+      title: "Personalisierter Trainer für deine Lateinvokabeln",
+      text: "Übe Vokabeln in demselben Format und in denselben Lektionen, die du von deinem Lateinbuch kennst. Personalisiere deine Abfrage und verwende verschiedene Modi und Schwierigkeitsgrade, damit Vocabulum für dich funktioniert."
     },
     {
       textRight: true,
       icon: "search",
-      title: "Search",
-      text: "Find unkown vocabularies in seconds! Search by Latin or German meaning, and by base form or any declined or conjugated form."
+      title: "Suche",
+      text: "Finde unbekannte Vokabeln in wenigen Sekunden! Suche nach der lateinischen oder deutschen Bedeutung, nach der Grundform oder irgendeiner deklinierten oder konjugierten Form."
     },
     {
       textRight: false,
       icon: "article",
-      title: "Generate & identify",
-      text: "Let Vocabulum generate any form of any word for you, like declined nouns or adjectives or conjugated verbs, special forms like adverbs or participles or even forms of irregular words like pronouns."
+      title: "Formen bilden & bestimmen",
+      text: "Vocabulum bildet dir jede Form von jedem Wort, also deklinierte Substantive/Adjektive, konjugierte Verben, spezielle Formen wie Adverbien oder Partizipien oder sogar Formen von unregelmäßigen Wörtern wie Pronomen."
     },
     {
       textRight: true,
       icon: "grid_on",
-      title: "Practice forms",
-      text: "Get better at making or recognizing forms! With Vocabulum, you can learn form-making in general or the forms of specific words like pronouns that you have to learn."
+      title: "Formen üben",
+      text: "Werde besser im Formen bilden und bestimmen! Mit Vocabulum kannst du allgemein das Bilden von Formen üben oder die speziellen Formen von unregelmäßigen Wörtern wie Pronomen lernen."
     },
     {
       textRight: false,
       icon: "computer",
-      title: "Translation assistance",
-      text: "If you need help translating a text, you can also give entire sentences to Vocabulum. It will provide you with all the information you need, from what form the words are to what they mean in German."
+      title: "Translation Assistance",
+      text: "Wenn du Hilfe beim Übersetzen eines lateinischen Textes brauchst, kannst du auch ganze Sätze eingeben. Vocabulum stellt dir dann alle relevanten Informationen bereit, von der Form, in der das Wort auftaucht, bis zu den möglichen deutschen Bedeutungen."
     }
   ];
 }

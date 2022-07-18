@@ -35,7 +35,7 @@
   background-size: cover;
   background-position: top;
   background-color: rgba(107, 143, 153, 0.4);
-  //filter: saturate(0.8) contrast(0.7);
+  /*filter: saturate(0.8) contrast(0.7);*/
   background-blend-mode: multiply;
 }
 @media screen and (min-width: 1200px) {
