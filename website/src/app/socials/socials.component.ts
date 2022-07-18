@@ -7,4 +7,5 @@ import {Component, Input} from '@angular/core';
 })
 export class SocialsComponent {
   @Input() showName = true;
+  @Input() showMail = true;
 }

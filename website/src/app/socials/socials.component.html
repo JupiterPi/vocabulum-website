@@ -13,5 +13,16 @@
     <span class="socials-name" *ngIf="showName">@J_Vocabular</span>
   </a>
 
+  <ng-container *ngIf="showMail">
+
+    <span class="socials-dot">&#8226;</span>
+
+    <a href="mailto:jonathan.vocabular@gmail.com" target="_blank">
+      <img src="assets/OOjs_UI_icon_message.svg.png">
+      <span class="socials-name" *ngIf="showName">jonathan.vocabular@gmail.com</span>
+    </a>
+
+  </ng-container>
+
   <!--<span>&#8226;</span>-->
 </div>
