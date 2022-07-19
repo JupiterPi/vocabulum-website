@@ -18,12 +18,12 @@ export class AppComponent {
       route: "/",
       title: "Startseite",
       selected: false
-    },
+    }/*,
     {
       route: "/imprint",
       title: "Impressum",
       selected: false
-    }
+    }*/
   ];
 
   floored = false;
