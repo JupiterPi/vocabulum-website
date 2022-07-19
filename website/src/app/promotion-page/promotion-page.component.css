@@ -6,12 +6,7 @@
 }
 
 #header-container h1 {
-  font-size: 45px;
-  background: -webkit-linear-gradient(45deg, #f14321, #f56e55);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-  padding: 0;
+  font-weight: 400;
 }
 
 /*#header-container a[mat-stroked-button] {
