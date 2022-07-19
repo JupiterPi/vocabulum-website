@@ -31,7 +31,7 @@ api.post("/", async (req, res) => {
     if ((await newsletterEmailService.collections.newsletterEmailsCollection.find(doc).toArray()).length >= 1 ) {
         res.contentType("application/json");
         res.send({
-            message: "You seem to be already subscribed to the newsletter."
+            message: "Du scheinst schon für den Newsletter angemeldet zu sein."
         });
         return;
     }
@@ -57,11 +57,11 @@ api.delete("/:id", async (req, res) => {
             await newsletterEmailService.collections.newsletterEmailsCollection.deleteOne({ _id: new ObjectId(emailId) });
             console.log(`Unsubscribed ${newsletterEmail.email} from newsletter`);
             res.status(202).send({
-                message: `Successfully unsubscribed ${newsletterEmail.email} from the newsletter.`
+                message: `${newsletterEmail.email} erfolgreich vom Newsletter abgemeldet.`
             });
         } else {
             res.status(200).send({
-                message: `That email is not subscribed to the newsletter currently.`
+                message: `Diese E-Mail-Adresse ist aktuell nicht für den Newsletter eingetragen.`
             });
         }
     } catch (ex) {

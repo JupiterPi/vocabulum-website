@@ -15,7 +15,7 @@ export class SignupFormComponent {
 
   getErrorMessage() {
     if (this.email.hasError("email")) {
-      return "Ungültige E-Mail";
+      return "Not a valid email";
     }
     return "";
   }
@@ -30,7 +30,7 @@ export class SignupFormComponent {
         })
       }).subscribe(response => {
         this.email.setValue("");
-        let message = "Newsletter erfolgreich abonniert.";
+        let message = "Signed up for the newsletter!";
         const body = response as {message: string};
         if (body.message !== "") {
           message = body.message;
@@ -39,7 +39,7 @@ export class SignupFormComponent {
           duration: 3 * 1000
         });
       }, (error: Error) => {
-        this.snackbar.open("Fehler: \"" + error.message + "\". Versuche es erneut", "", {
+        this.snackbar.open("Error: \"" + error.message + "\". Try again", "", {
           duration: 5 * 1000,
           panelClass: "error"
         });
