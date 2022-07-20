@@ -59,6 +59,47 @@
 }
 
 
+/* ----- Survey Banner ----- */
+
+#survey-banner-container {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#survey-banner {
+  background-color: white;
+  border: #d0d0d0 1px solid;
+  border-radius: 20px;
+  padding: 20px;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+#survey-banner .title {
+  font-size: 18px;
+}
+
+
+/* --- design colors --- */
+
+.designclr-red {
+  color: #f14321;
+}
+
+.designclr-lightred {
+  color: #f78772;
+}
+
+.designclr-blue {
+  color: #16708d;
+}
+
+
 /* ----- Cards ----- */
 
 #features-outer-container {

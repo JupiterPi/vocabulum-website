@@ -28,3 +28,17 @@
 }
 
 /* style for .error in styles.css */
+
+#done-banner {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/*#done-banner div {
+  height: 30px;
+}*/

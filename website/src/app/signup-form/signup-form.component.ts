@@ -9,7 +9,9 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
   styleUrls: ["./signup-form.component.css"]
 })
 export class SignupFormComponent {
-  email = new FormControl("", Validators.email)
+  isDone = false;
+
+  email = new FormControl("", Validators.email);
 
   constructor(private snackbar: MatSnackBar, private http: HttpClient) {}
 
@@ -30,10 +32,13 @@ export class SignupFormComponent {
         })
       }).subscribe(response => {
         this.email.setValue("");
-        let message = "Newsletter erfolgreich abonniert.";
+        let message = "";
         const body = response as {message: string};
         if (body.message !== "") {
           message = body.message;
+        } else {
+          message = "Newsletter erfolgreich abonniert.";
+          this.isDone = true;
         }
         this.snackbar.open(message,"", {
           duration: 3 * 1000

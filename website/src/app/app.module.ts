@@ -31,6 +31,7 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import {WindowService} from "./window.service";
 import { SocialsComponent } from './socials/socials.component';
 import {CookieService} from "ngx-cookie-service";
+import {MatRippleModule} from "@angular/material/core";
 
 @NgModule({
   declarations: [
@@ -43,30 +44,31 @@ import {CookieService} from "ngx-cookie-service";
     BottomBarComponent,
     SocialsComponent
   ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot([
-      {path: "", component: PromotionPageComponent},
-      {path: "imprint", component: ImprintComponent},
-      {path: "unsubscribe", component: UnsubscribeDialogComponent}
-    ]),
-    BrowserAnimationsModule,
-    MatSliderModule,
-    MatChipsModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    MatGridListModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatSidenavModule,
-    MatListModule,
-    HttpClientModule,
-    MatDialogModule
-  ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot([
+            {path: "", component: PromotionPageComponent},
+            {path: "imprint", component: ImprintComponent},
+            {path: "unsubscribe", component: UnsubscribeDialogComponent}
+        ]),
+        BrowserAnimationsModule,
+        MatSliderModule,
+        MatChipsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatIconModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatSnackBarModule,
+        MatGridListModule,
+        MatToolbarModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatListModule,
+        HttpClientModule,
+        MatDialogModule,
+        MatRippleModule
+    ],
   providers: [
     WindowService,
     CookieService

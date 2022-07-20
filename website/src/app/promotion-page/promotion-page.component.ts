@@ -44,4 +44,8 @@ export class PromotionPageComponent {
       text: "Wenn du Hilfe beim Übersetzen eines lateinischen Textes brauchst, kannst du auch ganze Sätze eingeben. Vocabulum stellt dir dann alle relevanten Informationen bereit, von der Form, in der das Wort auftaucht, bis zu den möglichen deutschen Bedeutungen."
     }
   ];
+
+  openSurvey() {
+    window.open("https://forms.gle/VJ9CrCnCa5x8aVu78", "_blank");
+  }
 }

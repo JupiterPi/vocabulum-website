@@ -1,4 +1,4 @@
-<div id="signup-form-container">
+<div id="signup-form-container" *ngIf="!isDone">
 
   <form>
     <mat-form-field appearance="outline" id="input-form-field">
@@ -12,4 +12,8 @@
     <button mat-flat-button color="primary" type="button" id="signup-button" (click)="signup()">Abonnieren</button>
   </form>
 
+</div>
+
+<div id="done-banner" *ngIf="isDone">
+  <div>Erfolgreich angemeldet!</div>
 </div>
