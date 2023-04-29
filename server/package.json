@@ -4,7 +4,10 @@
   "description": "",
   "main": "src/app.ts",
   "scripts": {
-    "run": "tsc && node out-vocabulum-website/app.js"
+    "run": "tsc && node out/app.js",
+    "build": "tsc",
+    "start": "node out/app.js",
+    "deploy": "gcloud app deploy"
   },
   "keywords": [],
   "author": "",
