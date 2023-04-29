@@ -1,4 +1,6 @@
 # vocabulum-website
-Web page for [Vocabulum](https://github.com/JupiterPi/vocabulum-core)
+Web page for [Vocabulum](http://www.vocabulum.de)
 
-Sometimes reachable at [w.jupiterpi.de:64105](http://w.jupiterpi.de:64105/). 
+See also:
+* [vocabulum-core](https://github.com/JupiterPi/vocabulum-core)
+* [vocabulum-webapp](https://github.com/JupiterPi/vocabulum-webapp)
