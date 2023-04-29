@@ -1,11 +1,10 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
-import {Router, ActivationEnd, NavigationEnd} from "@angular/router";
+import {ActivationEnd, NavigationEnd, Router} from "@angular/router";
 import {filter} from 'rxjs/operators';
-import { interval, Subscription } from 'rxjs';
 import {WindowService} from "./window.service";
 import {CookieService} from "ngx-cookie-service";
 import {HttpClient} from "@angular/common/http";
-import { v4 as uuid } from 'uuid';
+import {v4 as uuid} from 'uuid';
 
 @Component({
   selector: 'app-root',
@@ -18,12 +17,12 @@ export class AppComponent {
       route: "/",
       title: "Startseite",
       selected: false
-    }/*,
+    },
     {
       route: "/imprint",
       title: "Impressum",
       selected: false
-    }*/
+    }
   ];
 
   floored = false;
@@ -51,7 +50,7 @@ export class AppComponent {
     router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(e => this.onPageChanged(e as NavigationEnd));
   }
 
-  onPageChanged(e: NavigationEnd) {
+  onPageChanged(_: NavigationEnd) {
     // analyze traffic
     let id = this.cookieService.get("client-id");
     console.log(id);
