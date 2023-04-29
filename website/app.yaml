@@ -1,0 +1,13 @@
+runtime: nodejs16
+
+service: website-frontend
+
+handlers:
+- url: /(.*\..+)$
+  static_files: dist/vocabulum-website/\1
+  upload: dist/vocabulum-website/(.*\..+)$
+- url: /.*
+  static_files: dist/vocabulum-website/index.html
+  upload: dist/vocabulum-website/index.html
+
+# as by https://medium.com/@rgoyard/how-to-deploy-a-single-page-application-and-its-backend-to-google-app-engine-353ff93bd38c

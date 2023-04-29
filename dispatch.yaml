@@ -1,0 +1,5 @@
+dispatch:
+- url: "vocabulum.de/*"
+  service: website-frontend
+- url: "www.vocabulum.de/*"
+  service: website-frontend
