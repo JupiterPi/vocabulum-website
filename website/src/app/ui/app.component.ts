@@ -1,8 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ActivationEnd, NavigationEnd, Router} from "@angular/router";
 import {filter} from 'rxjs/operators';
-import {WindowService} from "./window.service";
-import {CookieService} from "ngx-cookie-service";
 import {HttpClient} from "@angular/common/http";
 
 @Component({
@@ -28,7 +26,7 @@ export class AppComponent {
 
   @ViewChild("filler") filler!: ElementRef<HTMLDivElement>;
 
-  constructor(private router: Router, private windowService: WindowService, private cookieService: CookieService, private http: HttpClient) {
+  constructor(private router: Router, private http: HttpClient) {
     router.events.pipe(
       filter(event => event instanceof ActivationEnd)
     ).subscribe(event => {

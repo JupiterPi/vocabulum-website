@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './ui/app.component';
 import {RouterModule} from "@angular/router";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -14,22 +14,22 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import { SignupFormComponent } from './signup-form/signup-form.component';
+import { SignupFormComponent } from './ui/signup-form/signup-form.component';
 import {MatGridListModule} from "@angular/material/grid-list";
-import { PromotionPageComponent } from './promotion-page/promotion-page.component';
+import { PromotionPageComponent } from './ui/promotion-page/promotion-page.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatListModule} from "@angular/material/list";
-import { ImprintComponent } from './imprint/imprint.component';
+import { ImprintComponent } from './ui/imprint/imprint.component';
 import {HttpClientModule} from "@angular/common/http";
 import {
   UnsubscribeDialogComponent,
   UnsubscribeDialogSuccessDialog
-} from './unsubscribe-dialog/unsubscribe-dialog.component';
+} from './ui/unsubscribe-dialog/unsubscribe-dialog.component';
 import {MatDialogModule} from "@angular/material/dialog";
-import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+import { BottomBarComponent } from './ui/bottom-bar/bottom-bar.component';
 import {WindowService} from "./window.service";
-import { SocialsComponent } from './socials/socials.component';
+import { SocialsComponent } from './ui/socials/socials.component';
 import {CookieService} from "ngx-cookie-service";
 import {MatRippleModule} from "@angular/material/core";
 
