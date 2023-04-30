@@ -1,0 +1,1 @@
+gcloud beta emulators datastore env-init > set_vars.cmd && set_vars.cmd && del set_vars.cmd

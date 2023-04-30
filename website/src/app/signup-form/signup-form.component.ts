@@ -2,6 +2,7 @@ import { Component} from "@angular/core";
 import {FormControl, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: "app-signup-form",
@@ -24,7 +25,7 @@ export class SignupFormComponent {
 
   signup() {
     if (this.email.value !== "" && !this.email.hasError("email")) {
-      this.http.post("/api/newsletter", {
+      this.http.post(environment.api + "/newsletter", {
         email: this.email.value
       }, {
         headers: new HttpHeaders({
@@ -32,15 +33,7 @@ export class SignupFormComponent {
         })
       }).subscribe(response => {
         this.email.setValue("");
-        let message = "";
-        const body = response as {message: string};
-        if (body.message !== "") {
-          message = body.message;
-        } else {
-          message = "Newsletter erfolgreich abonniert.";
-          this.isDone = true;
-        }
-        this.snackbar.open(message,"", {
+        this.snackbar.open("Newsletter erfolgreich abonniert.", "", {
           duration: 3 * 1000
         });
       }, (error: Error) => {

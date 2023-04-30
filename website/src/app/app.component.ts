@@ -4,7 +4,6 @@ import {filter} from 'rxjs/operators';
 import {WindowService} from "./window.service";
 import {CookieService} from "ngx-cookie-service";
 import {HttpClient} from "@angular/common/http";
-import {v4 as uuid} from 'uuid';
 
 @Component({
   selector: 'app-root',
@@ -51,17 +50,6 @@ export class AppComponent {
   }
 
   onPageChanged(_: NavigationEnd) {
-    // analyze traffic
-    let id = this.cookieService.get("client-id");
-    console.log(id);
-    if (id == "") {
-      id = uuid();
-      this.cookieService.set("client-id", id);
-    }
-    this.http.post("/api/analyze/view/" + id, null).subscribe({
-      next: val => console.log(val)
-    });
-
     // updateFloored
     setTimeout(() => {
       const viewportHeight = window.innerHeight;

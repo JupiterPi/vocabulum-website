@@ -3,6 +3,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-unsubscribe-dialog',
@@ -10,8 +11,8 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./unsubscribe-dialog.component.css']
 })
 export class UnsubscribeDialogComponent {
+  id?: string;
   email = {
-    id: "",
     email: "..."
   }
 
@@ -23,23 +24,18 @@ export class UnsubscribeDialogComponent {
       alert("Vocabulum couldn't read the email you want to unsubscribe from!");
     } else {
 
-      this.email.id = emailId;
-      this.http.get("/api/newsletter/" + emailId).subscribe((details) => {
-        const emailNewsletter = details as { _id: string, email: string };
-        this.email = {
-          id: emailNewsletter._id,
-          email: emailNewsletter.email
-        };
+      this.id = emailId;
+      this.http.get<{email: string}>(environment.api + "/newsletter/" + emailId).subscribe((info) => {
+        this.email = info;
       });
 
     }
   }
 
   unsubscribe() {
-    this.http.delete("/api/newsletter/" + this.email.id).subscribe(data => {
-      const message = (data as { message: string }).message;
+    this.http.delete(environment.api + "/newsletter/" + this.id).subscribe(data => {
       const dialog = this.dialog.open(UnsubscribeDialogSuccessDialog, {
-        data: message
+        data: {message: "Abo erfolgreich beendet."}
       });
       dialog.afterClosed().subscribe(() => {
         this.router.navigate(["/"]);
