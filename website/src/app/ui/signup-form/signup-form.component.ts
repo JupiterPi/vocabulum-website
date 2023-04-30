@@ -28,12 +28,19 @@ export class SignupFormComponent {
     if (this.email.value !== "" && !this.email.hasError("email")) {
       this.newsletterService.subscribeEmail({
         email: this.email.value
-      }).subscribe(id => {
-        console.log(id);
-        this.email.setValue("");
-        this.snackbar.open("Newsletter erfolgreich abonniert.", "", {
-          duration: 3 * 1000
-        });
+      }).subscribe({
+        next: id => {
+          console.log(id);
+          this.email.setValue("");
+          this.snackbar.open("Newsletter erfolgreich abonniert.", "", {
+            duration: 3 * 1000
+          });
+        },
+        error: () => {
+          this.snackbar.open("E-Mail-Adresse schon eingetragen.", "", {
+            duration: 3 * 1000
+          });
+        }
       });
     }
   }

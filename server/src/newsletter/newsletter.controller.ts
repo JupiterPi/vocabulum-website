@@ -12,8 +12,14 @@ api.get("/:id", async (req, res) => {
 // subscribe new email
 api.post("", async (req, res) => {
     const email = req.body;
-    const id = await repo.createEmail(email);
-    res.send(id);
+    email["email"] = (email["email"] as string).toLowerCase();
+    const existingEmails = await repo.findEmailsByEmail(email["email"]);
+    if (existingEmails.length > 0) {
+        res.status(409).send();
+    } else {
+        const id = await repo.createEmail(email);
+        res.send(id);
+    }
 });
 
 // unsubscribe
