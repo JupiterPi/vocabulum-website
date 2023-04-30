@@ -5,9 +5,10 @@
   "main": "src/app.ts",
   "scripts": {
     "run": "tsc && ..\\set_datastore_env.cmd && node out/app.js",
+    "run-dev-db": "gcloud beta emulators datastore start",
     "build": "tsc",
     "start": "node out/app.js",
-    "deploy": "gcloud app deploy"
+    "deploy": "gcloud app deploy --quiet"
   },
   "keywords": [],
   "author": "",

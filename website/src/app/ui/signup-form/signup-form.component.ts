@@ -3,6 +3,7 @@ import {FormControl, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../../environments/environment";
+import {NewsletterService} from "../../newsletter.service";
 
 @Component({
   selector: "app-signup-form",
@@ -14,7 +15,7 @@ export class SignupFormComponent {
 
   email = new FormControl("", Validators.email);
 
-  constructor(private snackbar: MatSnackBar, private http: HttpClient) {}
+  constructor(private snackbar: MatSnackBar, private newsletterService: NewsletterService) {}
 
   getErrorMessage() {
     if (this.email.hasError("email")) {
@@ -25,21 +26,13 @@ export class SignupFormComponent {
 
   signup() {
     if (this.email.value !== "" && !this.email.hasError("email")) {
-      this.http.post(environment.api + "/newsletter", {
+      this.newsletterService.subscribeEmail({
         email: this.email.value
-      }, {
-        headers: new HttpHeaders({
-          "Content-Type": "application/json"
-        })
-      }).subscribe(response => {
+      }).subscribe(id => {
+        console.log(id);
         this.email.setValue("");
         this.snackbar.open("Newsletter erfolgreich abonniert.", "", {
           duration: 3 * 1000
-        });
-      }, (error: Error) => {
-        this.snackbar.open("Fehler: \"" + error.message + "\". Versuche es erneut", "", {
-          duration: 5 * 1000,
-          panelClass: "error"
         });
       });
     }

@@ -51,9 +51,7 @@ export class AppComponent {
     // updateFloored
     setTimeout(() => {
       const viewportHeight = window.innerHeight;
-      console.log(this.filler);
       const fillerTop = this.filler.nativeElement.getBoundingClientRect().top;
-      console.log("updated - viewportHeight: " + viewportHeight + ", fillerTop: " + fillerTop);
       this.floored = fillerTop < viewportHeight;
     }, 100);
   }

@@ -2,8 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../../environments/environment";
+import {NewsletterService} from "../../newsletter.service";
 
 @Component({
   selector: 'app-unsubscribe-dialog',
@@ -16,7 +15,7 @@ export class UnsubscribeDialogComponent {
     email: "..."
   }
 
-  constructor(private snackBar: MatSnackBar, private dialog: MatDialog, private router: Router, private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private snackBar: MatSnackBar, private dialog: MatDialog, private router: Router, private route: ActivatedRoute, private newsletterService: NewsletterService) { }
 
   ngOnInit() {
     const emailId = this.route.snapshot.queryParamMap.get("email");
@@ -25,15 +24,18 @@ export class UnsubscribeDialogComponent {
     } else {
 
       this.id = emailId;
-      this.http.get<{email: string}>(environment.api + "/newsletter/" + emailId).subscribe((info) => {
-        this.email = info;
+
+      this.newsletterService.getEmailInfo(emailId).subscribe(email => {
+        if (email != null) this.email = email;
+        else alert("Ungültiger Link");
       });
 
     }
   }
 
   unsubscribe() {
-    this.http.delete(environment.api + "/newsletter/" + this.id).subscribe(data => {
+    if (!this.id) return;
+    this.newsletterService.unsubscribeEmail(this.id).subscribe(() => {
       const dialog = this.dialog.open(UnsubscribeDialogSuccessDialog, {
         data: {message: "Abo erfolgreich beendet."}
       });
@@ -50,5 +52,5 @@ export class UnsubscribeDialogComponent {
   templateUrl: "./unsubscribe-dialog-success-dialog.html"
 })
 export class UnsubscribeDialogSuccessDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public message: string) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
 }

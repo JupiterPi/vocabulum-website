@@ -1,6 +1,7 @@
 import * as repo from "./newsletter_email.repo";
+import {Router} from "express";
 
-const api = require("express").Router();
+const api = Router();
 
 // get email address info
 api.get("/:id", async (req, res) => {
@@ -19,7 +20,7 @@ api.post("", async (req, res) => {
 api.delete("/:id", async (req, res) => {
     const id = parseInt(req.params["id"]);
     await repo.deleteEmail(id);
-    res.sendStatus(200);
+    res.send();
 });
 
 export = api;
