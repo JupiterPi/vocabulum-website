@@ -1,5 +1,6 @@
 import * as repo from "./newsletter_email.repo";
 import {Router} from "express";
+import logger from "../logger";
 
 const api = Router();
 
@@ -18,6 +19,7 @@ api.post("", async (req, res) => {
         res.status(409).send();
     } else {
         const id = await repo.createEmail(email);
+        logger.log(`Subscribed email: ${email["email"]} with id ${id}`);
         res.send(id);
     }
 });
@@ -26,6 +28,7 @@ api.post("", async (req, res) => {
 api.delete("/:id", async (req, res) => {
     const id = parseInt(req.params["id"]);
     await repo.deleteEmail(id);
+    logger.log(`Unsubscribed email with id: ${id}`);
     res.send();
 });
 
