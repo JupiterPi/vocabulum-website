@@ -9,3 +9,9 @@ dispatch:
   service: website-frontend
 - url: "www.vocabulum.de/*"
   service: website-frontend
+
+- url: "app.vocabulum.de/*"
+  service: webapp-frontend
+
+- url: "api.vocabulum.de/*"
+  service: webapp-backend

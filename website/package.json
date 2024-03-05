@@ -4,7 +4,7 @@
   "scripts": {
     "start": "ng serve",
     "build": "ng build",
-    "deploy": "ng build && gcloud app deploy --quiet"
+    "deploy": "ng build && gcloud --project vocabulum-de app deploy --quiet"
   },
   "private": true,
   "dependencies": {
