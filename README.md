@@ -1,5 +1,5 @@
 # vocabulum-website
-Web page for [Vocabulum](http://www.vocabulum.de)
+Web page for Vocabulum
 
 See also:
 * [vocabulum-core](https://github.com/JupiterPi/vocabulum-core)
